@@ -2,7 +2,7 @@
 {
     public class GetArticlesDTO
     {
-        public string SearchQuery { get; set; } = "100"; // This is the search term you need to collect in your endpoint and send to getArticles
+        public string SearchQuery { get; set; }  // This is the search term you need to collect in your endpoint and send to getArticles
         public string ArticleCountry { get; set; } = "GB";
         public string Lang { get; set; } = "en";
         public string SearchMatchType { get; set; } = "prefix_or_suffix";

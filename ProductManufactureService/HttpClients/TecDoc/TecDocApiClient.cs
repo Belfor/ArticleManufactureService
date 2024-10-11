@@ -1,34 +1,63 @@
-﻿namespace ProductManufacturerService.HttpClients.TecDoc
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using ProductManufacturerService.HttpClients.DTOs;
+using System.Text;
+
+namespace ProductManufacturerService.HttpClients.TecDoc
 {
-    public class TecDocApiClient
+    public class TecDocApiClient : ITecDocApiClient
     {
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
-        private readonly ILogger _logger;
+        private readonly ILogger<ITecDocApiClient> _logger;
         private readonly string _url;
-        public TecDocApiClient(HttpClient httpClient, IConfiguration configuration, ILogger logger)
+        private readonly JsonSerializerSettings _settings;
+        public TecDocApiClient(IHttpClientFactory httpClientFactory, IConfiguration configuration, ILogger<TecDocApiClient> logger)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClientFactory.CreateClient();
             _configuration = configuration;
             _logger = logger;
             _url = _configuration["TecDocAPI"];
+            _settings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Formatting = Formatting.None,
+                NullValueHandling = NullValueHandling.Ignore
+            };
         }
-        public async Task GetArticles()
+        public async Task<string> GetArticles(string searchQuery)
         {
-            var response = await _httpClient.PostAsync(_url, Content);
+            var getArticles = new GetArticlesDTO
+            {
+                SearchQuery = searchQuery,
+            };
+            var request = JsonConvert.SerializeObject(new { getArticles }, _settings);
+           
+
+            var content = new StringContent(request, Encoding.UTF8);
+
+            var response = await _httpClient.PostAsync(_url, content);
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
-            return content;
+            var contentResponse = await response.Content.ReadAsStringAsync();
+            return contentResponse;
         }
 
-        public async Task GetAmBrandAddress()
+        public async Task<string> GetAmBrandAddress(string brandNo)
         {
-            var response = await _httpClient.PostAsync(_url, Content);
+            var getAmBrandAddress = new GetAmBrandAddressDTO
+            {
+                BrandNo = brandNo,
+            };
+
+            var request = JsonConvert.SerializeObject(new { getAmBrandAddress }, _settings);
+
+            var content = new StringContent(request, Encoding.UTF8);
+            var response = await _httpClient.PostAsync(_url, content);
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsStringAsync();
-            return content;
+            var contentResponse = await response.Content.ReadAsStringAsync();
+            return contentResponse;
         }
     }
 }

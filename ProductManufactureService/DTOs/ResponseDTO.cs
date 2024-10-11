@@ -1,8 +1,10 @@
-﻿namespace ProductManufactureService.DTOs
+﻿using System.Net;
+
+namespace ProductManufactureService.DTOs
 {
     public class ResponseDTO<T>
     { 
-        public int Status {  get; set; }
+        public HttpStatusCode Status {  get; set; }
         public List<T> Results { get; set; } = new List<T>();
         
     }

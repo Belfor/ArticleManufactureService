@@ -1,11 +1,20 @@
+using ProductManufacturerService.HttpClients.TecDoc;
+using ProductManufacturerService.Services;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddLogging();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<ITecDocApiClient, TecDocApiClient>();
+builder.Services.AddScoped<IManufacturerService, ManufacturerService>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
 
 var app = builder.Build();
 
