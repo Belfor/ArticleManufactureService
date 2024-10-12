@@ -35,7 +35,7 @@ namespace ProductManufacturerService.HttpClients.TecDoc
            
 
             var content = new StringContent(request, Encoding.UTF8);
-
+            _logger.LogInformation("Call to GetArticles");
             var response = await _httpClient.PostAsync(_url, content);
             response.EnsureSuccessStatusCode();
 
@@ -53,6 +53,7 @@ namespace ProductManufacturerService.HttpClients.TecDoc
             var request = JsonConvert.SerializeObject(new { getAmBrandAddress }, _settings);
 
             var content = new StringContent(request, Encoding.UTF8);
+            _logger.LogInformation("Call to GetAmBrandAddress");
             var response = await _httpClient.PostAsync(_url, content);
             response.EnsureSuccessStatusCode();
 

@@ -17,26 +17,26 @@ namespace ProductManufacturerService.Services
         }
         public async Task<IEnumerable<ArticleManufacter>> GetManufacturerInfo(string searchQuery)
         {
-            var articlesManufacter = new List<ArticleManufacter>();
+            
             var articles = await GetArticles(searchQuery);
             var mfrids = articles.Select(s => s.ManufacturerId).Distinct();
-
-            foreach (var mfrid in mfrids)
-            {
-                var manufacturer = await GetBrandAddress(mfrid);
-                var articleManufacter = articles.Where(article => article.ManufacturerId == mfrid).Select(article => new ArticleManufacter
-                {
-                    Article = article,
-                    Manufacturer = manufacturer
-
-                }).ToList();
-
-
-
-                articlesManufacter.AddRange(articleManufacter);
-
-            }
+            var result = await Task.WhenAll(mfrids.Select(mfrid => GetArticleManfucaturer(articles, mfrid)));
+            if (result == null) throw new Exception("Error obtaining the manufacturer of the article");
+            
+            var articlesManufacter  = result.SelectMany(s => s).ToList();
             return articlesManufacter;
+        }
+
+        private async Task<List<ArticleManufacter>> GetArticleManfucaturer(IEnumerable<Article> articles, int mfrid)
+        {
+            var manufacturer = await GetBrandAddress(mfrid);
+            var articleManufacter = articles.Where(article => article.ManufacturerId == mfrid).Select(article => new ArticleManufacter
+            {
+                Article = article,
+                Manufacturer = manufacturer
+
+            }).ToList();
+            return articleManufacter;
         }
 
         private async Task<Manufacturer> GetBrandAddress(int mfrid)
