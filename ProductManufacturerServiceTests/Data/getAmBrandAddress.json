@@ -1,0 +1,24 @@
+{
+  "data": {
+    "array": [
+      {
+        "addressName": "Address (General)",
+        "addressType": 1,
+        "city": "Featherstone",
+        "city2": "Wolverhampton",
+        "email": "uk.info@mann-hummel.com",
+        "fax": "+44 (1902) 38 4001",
+        "logoDocId": "499999",
+        "name": "MANN-FILTER",
+        "name2": "MANN+HUMMEL (UK) LTD.",
+        "phone": "+44 (1902) 38 4062",
+        "street": "Unit C",
+        "street2": "Vernon Park",
+        "wwwURL": "www.mann-filter.com",
+        "zip": "WV10 7HW",
+        "zipCountryCode": "GB"
+      }
+    ]
+  },
+  "status": 200
+}

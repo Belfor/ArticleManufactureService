@@ -1,0 +1,322 @@
+{
+  "totalMatchingArticles": 21,
+  "maxAllowedPage": 1,
+  "articles": [
+    {
+      "dataSupplierId": 6306,
+      "articleNumber": "GKNP20100",
+      "mfrId": 5121,
+      "mfrName": "GKN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "GKNP20100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "302100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "302100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "303100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "303100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "305100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "305100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "306100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "306100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "GKND12100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "GKND12100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "GKNP20100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "GKNP20100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 56,
+      "articleNumber": "U 100",
+      "mfrId": 811,
+      "mfrName": "LÖBRO",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "U 100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "21100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "21100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "24100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "24100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "36100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "36100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "48100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "48100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "55100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "55100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "56100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "56100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "85100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "85100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "87100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "87100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "88100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "88100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "GKND12100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "GKND12100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "GKNP20100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "GKNP20100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "GKNW10100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "GKNW10100"
+        }
+      ],
+      "totalLinkages": 0
+    },
+    {
+      "dataSupplierId": 1,
+      "articleNumber": "U 100",
+      "mfrId": 501,
+      "mfrName": "SPIDAN",
+      "linkages": [],
+      "searchQueryMatches": [
+        {
+          "matchType": "ArticleNumber",
+          "description": "Article Number",
+          "match": "U 100"
+        }
+      ],
+      "totalLinkages": 0
+    }
+  ],
+  "status": 200
+}
