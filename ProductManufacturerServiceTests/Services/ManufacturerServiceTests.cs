@@ -13,7 +13,7 @@ namespace ProductManufacturerService.Services.Tests
         {
             Mock<ITecDocApiClient> tecDocApiClientMock = new Mock<ITecDocApiClient>();
             StreamReader sr = new StreamReader(@"Data/getArticles.json");
-            //Read the first line of text
+        
             var getArticles = sr.ReadToEnd();
             sr = new StreamReader(@"Data/getAmBrandAddress.json");
             var getAmBrandAddress = sr.ReadToEnd();
