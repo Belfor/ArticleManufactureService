@@ -19,8 +19,8 @@ namespace ProductManufacturerService.Services
         {
             
             var articles = await GetArticles(searchQuery);
-            var mfrids = articles.Select(s => s.ManufacturerId).Distinct();
-            var result = await Task.WhenAll(mfrids.Select(mfrid => GetArticleManfucaturer(articles, mfrid)));
+            var dsids = articles.Select(s => s.DataSupplierId).Distinct();
+            var result = await Task.WhenAll(dsids.Select(id => GetArticleManfucaturer(articles, id)));
             if (result == null) throw new Exception("Error obtaining the manufacturer of the article");
             
             var articlesManufacter  = result.SelectMany(s => s).ToList();
@@ -30,7 +30,7 @@ namespace ProductManufacturerService.Services
         private async Task<List<ArticleManufacter>> GetArticleManfucaturer(IEnumerable<Article> articles, int mfrid)
         {
             var manufacturer = await GetBrandAddress(mfrid);
-            var articleManufacter = articles.Where(article => article.ManufacturerId == mfrid).Select(article => new ArticleManufacter
+            var articleManufacter = articles.Where(article => article.DataSupplierId == mfrid).Select(article => new ArticleManufacter
             {
                 Article = article,
                 Manufacturer = manufacturer
@@ -70,7 +70,7 @@ namespace ProductManufacturerService.Services
             var articles = from item in ArticlesObject["articles"]
                                        select new Article 
                                        { 
-                                           ManufacturerId = (int)item["mfrId"], 
+                                           DataSupplierId = (int)item["dataSupplierId"], 
                                            ArticleNumber = item["articleNumber"].ToString() 
                                        };
             return articles;
