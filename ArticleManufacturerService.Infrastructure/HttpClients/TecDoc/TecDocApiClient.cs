@@ -1,9 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿
+using ArticleManufacturerService.Infrastructure.HttpClients.TecDoc;
+using ArticleManufacturerService.Infrastructure.HttpClients.TecDoc.DTOs;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using ProductManufacturerService.HttpClients.DTOs;
+using System.Net;
 using System.Text;
 
-namespace ProductManufacturerService.HttpClients.TecDoc
+namespace ArticleManufacturerService.Infrastructure.HttpClients.TecDoc
 {
     public class TecDocApiClient : ITecDocApiClient
     {
@@ -25,9 +30,11 @@ namespace ProductManufacturerService.HttpClients.TecDoc
                 NullValueHandling = NullValueHandling.Ignore
             };
         }
-        public async Task<string> GetArticles(string searchQuery)
+        public async Task<IEnumerable<ArticleResponse>> GetArticles(string searchQuery)
         {
-            var getArticles = new GetArticlesDTO
+            _logger.LogInformation($"Call to GetArticles, searchQuery:{searchQuery}");
+   
+            var getArticles = new GetArticlesRequest
             {
                 SearchQuery = searchQuery,
             };
@@ -35,17 +42,26 @@ namespace ProductManufacturerService.HttpClients.TecDoc
            
 
             var content = new StringContent(request, Encoding.UTF8);
-            _logger.LogInformation("Call to GetArticles");
+           
             var response = await _httpClient.PostAsync(_url, content);
             response.EnsureSuccessStatusCode();
 
             var contentResponse = await response.Content.ReadAsStringAsync();
-            return contentResponse;
+            var apiResponse = JsonConvert.DeserializeObject<ApiArticleResponse>(contentResponse);
+
+            if (apiResponse.Status != (int)HttpStatusCode.OK)
+            {
+                _logger.LogError($"Error call to GetArticles, searchQuery:{searchQuery}");
+                throw new Exception("Error to GetArticles");
+            }
+
+            return apiResponse.Articles;
         }
 
-        public async Task<string> GetAmBrandAddress(string brandNo)
+        public async Task<IEnumerable<AddressResponse>> GetAmBrandAddress(string brandNo)
         {
-            var getAmBrandAddress = new GetAmBrandAddressDTO
+            _logger.LogInformation($"Call to GetAmBrandAddress, brandNo:{brandNo}");
+            var getAmBrandAddress = new GetAmBrandAddressRequest
             {
                 BrandNo = brandNo,
             };
@@ -53,12 +69,20 @@ namespace ProductManufacturerService.HttpClients.TecDoc
             var request = JsonConvert.SerializeObject(new { getAmBrandAddress }, _settings);
 
             var content = new StringContent(request, Encoding.UTF8);
-            _logger.LogInformation("Call to GetAmBrandAddress");
+           
             var response = await _httpClient.PostAsync(_url, content);
             response.EnsureSuccessStatusCode();
 
             var contentResponse = await response.Content.ReadAsStringAsync();
-            return contentResponse;
+            var apiResponse = JsonConvert.DeserializeObject<ApiAddressResponse>(contentResponse);
+
+            if (apiResponse.Status != (int)HttpStatusCode.OK)
+            {
+                _logger.LogError($"Error call to GetAmBrandAddress, brandNo:{brandNo}");
+                throw new Exception("Error to GetAmBrandAddress");
+            }
+
+            return apiResponse.Data.Array;
         }
     }
 }

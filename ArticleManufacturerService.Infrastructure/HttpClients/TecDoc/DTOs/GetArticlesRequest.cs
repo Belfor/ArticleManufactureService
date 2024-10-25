@@ -1,6 +1,6 @@
-﻿namespace ProductManufacturerService.HttpClients.DTOs
+﻿namespace ArticleManufacturerService.Infrastructure.HttpClients.TecDoc.DTOs
 {
-    public class GetArticlesDTO
+    public class GetArticlesRequest
     {
         public string SearchQuery { get; set; }  // This is the search term you need to collect in your endpoint and send to getArticles
         public string ArticleCountry { get; set; } = "GB";
