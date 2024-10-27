@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProductManufactureService\ArticleManufacturerService.Api.csproj" />
+    <ProjectReference Include="..\ArticleManufacturerService.API\ArticleManufacturerService.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

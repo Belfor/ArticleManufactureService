@@ -8,5 +8,5 @@ namespace ArticleManufacturerService.Domain.Entities;
         public string Email { get; set; }
         public string Street { get; set; }
         public string Zip { get; set; }
-}
+    }
 

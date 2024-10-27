@@ -2,10 +2,10 @@
 
 namespace ArticleManufacturerService.DTOs
 {
-    public class ResponseDTO<T>
+    public class ResponseResponse<T>
     { 
         public HttpStatusCode Status {  get; set; }
-        public List<T>? Results { get; set; } = null;
+        public IEnumerable<T>? Results { get; set; } = null;
         public string? StatusText { get; set; } = null;
 
     }

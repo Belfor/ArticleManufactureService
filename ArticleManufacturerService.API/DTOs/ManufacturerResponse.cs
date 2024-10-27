@@ -1,6 +1,6 @@
 ﻿namespace ArticleManufacturerService.DTOs
 {
-    public class ManufacturerDTO
+    public class ManufacturerResponse
 	{ 
         public string ArticleNumber { get; set; }
 		public int ManufacturerId { get; set; }

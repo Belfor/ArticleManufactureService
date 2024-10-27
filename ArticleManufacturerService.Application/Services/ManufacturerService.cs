@@ -9,12 +9,12 @@ namespace ArticleManufacturerService.Application.Services
 {
     public class ManufacturerService : IManufacturerService
     {
-        private readonly ITecDocApiClient TecDocApiClient;
+        private readonly ITecDocApiClient _tecDocApiClient;
         private readonly ILogger<ManufacturerService> _logger;
         private readonly IMapper _mapper;
         public ManufacturerService(ITecDocApiClient tecDocApiClient, IMapper mapper, ILogger<ManufacturerService> logger)
         {
-            TecDocApiClient = tecDocApiClient;
+            _tecDocApiClient = tecDocApiClient;
             _mapper = mapper;
             _logger = logger;
         }
@@ -34,7 +34,7 @@ namespace ArticleManufacturerService.Application.Services
 
                 var manufacturersTasks = dataSupplierIds.Select(async id => new Manufacturer
                 {
-                    Addresses = await GetArticleManfucaturer(id),
+                    Addresses = await GetManfucaturerAddress(id),
                     Articles = articles.Where(article => article.DataSupplierId == id).ToList(),
                 });
 
@@ -49,23 +49,21 @@ namespace ArticleManufacturerService.Application.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.StackTrace);
                 throw new ManufacturerException(System.Net.HttpStatusCode.InternalServerError, "An Error has ocurred");
             }
         }
 
-        private async Task<List<Address>> GetArticleManfucaturer(int id)
+        private async Task<List<Address>> GetManfucaturerAddress(int id)
         {
             _logger.LogDebug($"Call GetArticleManfucaturer with id: {id}");
-            var addressResponse = await TecDocApiClient.GetAmBrandAddress(id.ToString());
+            var addressResponse = await _tecDocApiClient.GetAmBrandAddress(id.ToString());
             return _mapper.Map<List<Address>>(addressResponse);
         }
 
         private async Task<List<Article>> GetArticles(string searchQuery)
         {
             _logger.LogDebug($"Call GetArticles with searchQuery: {searchQuery}");
-
-            var responseArticles = await TecDocApiClient.GetArticles(searchQuery);
+            var responseArticles = await _tecDocApiClient.GetArticles(searchQuery);
             return  _mapper.Map<List<Article>>(responseArticles);         
             
         }
