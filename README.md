@@ -10,5 +10,5 @@
 
 ## Ejecutar el servicio
 
-- dotnet run --project ProductManufactureService\ProductManufacturerService.csproj
+- dotnet run --project ArticleManufacturerService.API\ArticleManufacturerService.Api.csproj
 - Abrir en un navegador: https://localhost:7269/swagger/index.html
